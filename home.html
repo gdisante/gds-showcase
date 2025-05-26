@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GDS Consulting Services - Portfolio</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f4f4; }
+        header { background-color: #003366; color: white; padding: 20px; text-align: center; }
+        header img { width: 100px; }
+        section.presentation { padding: 40px; text-align: center; }
+        section.presentation h1 { font-size: 2.5em; margin-bottom: 10px; }
+        section.presentation p { font-size: 1.2em; max-width: 700px; margin: auto; }
+        .carousel { position: relative; width: 80%; margin: 50px auto; overflow: hidden; background: white; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        .carousel-track { display: flex; transition: transform 0.5s ease-in-out; }
+        .carousel-item { min-width: 100%; box-sizing: border-box; padding: 20px; }
+        .carousel-item h3 { margin-bottom: 10px; }
+        .carousel-buttons { text-align: center; margin-top: 10px; }
+        .carousel-buttons button { margin: 0 5px; padding: 10px 20px; border: none; background-color: #003366; color: white; cursor: pointer; border-radius: 5px; }
+        footer { background-color: #003366; color: white; text-align: center; padding: 10px; margin-top: 40px; }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="YOUR_LOGO_PATH_HERE" alt="GDS Consulting Services Logo">
+        <h1>GDS Consulting Services</h1>
+    </header>
+
+    <section class="presentation">
+        <h1>Welcome to Our Portfolio</h1>
+        <p>We are a leading consulting firm specializing in WMS, TMS, API integrations, and enterprise solutions. Our team has delivered success stories for top-tier clients worldwide, providing cutting-edge solutions tailored to their needs.</p>
+    </section>
+
+    <div class="carousel" id="carousel">
+        <div class="carousel-track">
+            <div class="carousel-item">
+                <h3>Client: IKEA</h3>
+                <p>Optimized warehouse management and logistics operations, reducing delays by 25%.</p>
+            </div>
+            <div class="carousel-item">
+                <h3>Client: PepsiCo</h3>
+                <p>Implemented a robust API integration for real-time inventory tracking across global sites.</p>
+            </div>
+            <div class="carousel-item">
+                <h3>Client: Zimmer Biomet</h3>
+                <p>Developed customized reporting and analytics dashboards for enhanced decision-making.</p>
+            </div>
+            <div class="carousel-item">
+                <h3>Client: AutoScheduler</h3>
+                <p>Delivered cutting-edge automation and AI solutions for advanced scheduling and planning.</p>
+            </div>
+        </div>
+    </div>
+    <div class="carousel-buttons">
+        <button onclick="moveCarousel(-1)">Previous</button>
+        <button onclick="moveCarousel(1)">Next</button>
+    </div>
+
+    <footer>
+        &copy; 2025 GDS Consulting Services. All rights reserved.
+    </footer>
+
+    <script>
+        const track = document.querySelector('.carousel-track');
+        const items = document.querySelectorAll('.carousel-item');
+        let currentIndex = 0;
+
+        function moveCarousel(direction) {
+            currentIndex += direction;
+            if (currentIndex < 0) currentIndex = items.length - 1;
+            if (currentIndex >= items.length) currentIndex = 0;
+            const width = items[0].getBoundingClientRect().width;
+            track.style.transform = `translateX(-${currentIndex * width}px)`;
+        }
+
+        setInterval(() => moveCarousel(1), 5000); // Auto-slide every 5 seconds
+    </script>
+</body>
+</html>
